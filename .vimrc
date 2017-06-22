@@ -41,7 +41,7 @@ set shiftwidth=2
 set softtabstop=2
 
 " 代码折叠
-set foldmethod=syntax
+" set foldmethod=syntax
 
 " JS Standard Style
 autocmd bufwritepost *.js silent !standard --fix %
@@ -49,9 +49,7 @@ set autoread
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" JSX
-let g:jsx_ext_required = 0
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -69,7 +67,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'Raimondi/delimitMate'
 " 语法高亮
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'maxmellon/vim-jsx-pretty'
 " 自动补全
 Plugin 'marijnh/tern_for_vim'
 " 风格检测
