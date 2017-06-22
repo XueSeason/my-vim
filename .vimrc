@@ -11,7 +11,7 @@ set wildmenu
 set nocompatible
 " 搜索时大小写不敏感
 set ignorecase
-" 开启语法高亮 
+" 开启语法高亮
 syntax enable
 " 允许配色方案替换默认方案
 syntax on
@@ -46,6 +46,9 @@ set foldmethod=syntax
 " JS Standard Style
 autocmd bufwritepost *.js silent !standard --fix %
 set autoread
+" nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -67,9 +70,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 " 风格检测
 Plugin 'scrooloose/syntastic'
-
+" 文件树
+Plugin 'scrooloose/nerdtree'
 " HTML CSS
 Plugin 'mattn/emmet-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-
