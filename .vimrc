@@ -66,6 +66,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'Raimondi/delimitMate'
 " 语法高亮
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 " 自动补全
 Plugin 'marijnh/tern_for_vim'
 " 风格检测
