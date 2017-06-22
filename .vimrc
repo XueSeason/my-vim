@@ -43,13 +43,28 @@ set softtabstop=2
 " 代码折叠
 " set foldmethod=syntax
 
-" JS Standard Style
-autocmd bufwritepost *.js silent !standard --fix %
-set autoread
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" syntasitic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" JS Standard Style
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_generic = 1
+autocmd bufwritepost *.js silent !standard --fix %
+set autoread
+
+" js autocomplete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -68,7 +83,10 @@ Plugin 'Raimondi/delimitMate'
 " 语法高亮
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'isRuslan/vim-es6'
+Plugin 'moll/vim-node'
 " 自动补全
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 " 风格检测
 Plugin 'scrooloose/syntastic'
