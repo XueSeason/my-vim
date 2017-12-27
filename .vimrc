@@ -34,7 +34,7 @@ filetype indent on
 " 将制表符扩展为空格
 set expandtab
 " 制表符占用空格数
-set tabstop=2
+set tabstop=4
 " 格式化时制表符占用空格数
 set shiftwidth=2
 " 连续空格视为制表符
@@ -56,6 +56,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" emmet
+let g:user_emmet_expandabbr_key = '<Tab>'
 
 " JS Standard Style
 let g:syntastic_javascript_checkers = ['standard']
